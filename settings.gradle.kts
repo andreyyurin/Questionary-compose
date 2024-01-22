@@ -14,5 +14,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "questionary"
-include(":app")
- 
+include(":ui:app", ":ui:login")
+include(":domain")
+include(":data")
