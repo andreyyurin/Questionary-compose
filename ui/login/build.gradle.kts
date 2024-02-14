@@ -1,13 +1,11 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    baseUiPlugins()
 }
 
 android {
-    namespace = "ru.sad.login"
+    baseUiConfiguration("ru.sad.login")
 }
 
-apply {
-    from("$rootDir/ui/base_ui_module_config.gradle")
-    from("$rootDir/ui/base_ui_dependencies.gradle")
+dependencies {
+    baseUiDependencies()
 }

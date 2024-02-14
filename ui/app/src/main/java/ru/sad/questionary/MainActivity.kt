@@ -3,13 +3,20 @@ package ru.sad.questionary
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import ru.sad.questionary.ui.navigation.BottomNavigation
+import ru.sad.questionary.ui.navigation.NavigationGraph
 import ru.sad.questionary.ui.theme.QuestionaryTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,30 +24,42 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             QuestionaryTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
                 ) {
-                    Greeting("Android")
+                    MainScreenView()
+
+                    AnimatedVisibility(
+                        visible = false,
+                        modifier = Modifier.align(Alignment.TopCenter),
+                        enter = scaleIn(),
+                        exit = scaleOut()
+                    ) {
+                   //     SnackbarErrorNetworkConnection()
+                    }
                 }
             }
         }
     }
 }
-
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+@Preview
+private fun MainScreenView() {
+    val navController = rememberNavController()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    QuestionaryTheme {
-        Greeting("Android")
+    Scaffold(
+        modifier = Modifier
+            .fillMaxSize(),
+        bottomBar = {
+            BottomNavigation(navController = navController)
+        }
+    ) { innerPadding ->
+        NavigationGraph(
+            navController = navController,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        )
     }
 }
