@@ -9,6 +9,7 @@ fun DependencyHandler.baseUiDependencies() {
 
     compose()
     composeMaterial()
+    composeConstraint()
     composeNavigation()
     composePaging()
     composeRuntime()
@@ -50,6 +51,10 @@ private fun DependencyHandler.compose() {
     implementation("androidx.compose.foundation:foundation:1.6.1")
 }
 
+private fun DependencyHandler.composeConstraint() {
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+}
+
 private fun DependencyHandler.composeRuntime() {
     implementation("androidx.compose.runtime:runtime:1.6.1")
     implementation("androidx.compose.runtime:runtime-livedata:1.6.1")
@@ -65,11 +70,8 @@ private fun DependencyHandler.composePaging() {
 }
 
 private fun DependencyHandler.composeMaterial() {
-    implementation("androidx.compose.material:material:1.6.1")
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.2.0")
-    implementation("androidx.compose.material:material-icons-core:1.6.1")
-    implementation("androidx.compose.material:material-icons-extended:1.6.1")
 }
 
 private fun DependencyHandler.composeNavigation() {
@@ -78,6 +80,7 @@ private fun DependencyHandler.composeNavigation() {
 
 private fun DependencyHandler.hilt() {
     implementation("com.google.dagger:hilt-android:2.50")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
 }
 

@@ -1,5 +1,7 @@
 package ru.sad.questionary
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,10 +17,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import ru.sad.questionary.ui.navigation.BottomNavigation
 import ru.sad.questionary.ui.navigation.NavigationGraph
 import ru.sad.questionary.ui.theme.QuestionaryTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +45,13 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(newBase)
+        val config = Configuration(newBase.resources.configuration)
+        config.fontScale = 1.0f
+        applyOverrideConfiguration(config)
     }
 }
 @Composable
