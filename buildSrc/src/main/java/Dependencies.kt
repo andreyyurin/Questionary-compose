@@ -12,6 +12,7 @@ fun DependencyHandler.baseUiDependencies() {
     composeConstraint()
     composeNavigation()
     composePaging()
+    glide()
     composeRuntime()
     lottie()
     coroutines()
@@ -78,6 +79,9 @@ private fun DependencyHandler.composeNavigation() {
     implementation("androidx.navigation:navigation-compose:2.7.6")
 }
 
+fun DependencyHandler.glide() {
+    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+}
 private fun DependencyHandler.hilt() {
     implementation("com.google.dagger:hilt-android:2.50")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
@@ -89,7 +93,7 @@ private fun DependencyHandler.tests() {
     androidTest("androidx.test.ext:junit:1.1.5")
     androidTest("androidx.test.espresso:espresso-core:3.5.1")
     androidTest(platform("androidx.compose:compose-bom:2023.08.00"))
-    androidTest("androidx.compose.ui:ui-test-junit4")
+    androidTest("androidx.compose.ui:ui-test-junit4:1.6.1")
 }
 
 private fun DependencyHandler.debug() {

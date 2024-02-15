@@ -26,6 +26,7 @@ fun CustomText(
     textSize: TextUnit = TextUnit.Unspecified,
     weight: FontWeight = FontWeight.Normal,
     color: Color = Color.Black,
+    textAlign: TextAlign = TextAlign.Unspecified,
     maxLines: Int = 1
 ) {
     return BasicText(
@@ -35,7 +36,8 @@ fun CustomText(
             fontWeight = weight,
             fontFamily = FontFamily(Font(resId = R.font.gothic, weight = weight)),
             fontSize = textSize,
-            color = color
+            color = color,
+            textAlign = textAlign
         )
     )
 }

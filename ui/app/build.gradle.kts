@@ -20,6 +20,7 @@ android {
 
 dependencies {
     implementation(project(":ui:login"))
+    implementation(project(":ui:onboarding"))
 
     baseUiDependencies()
 }

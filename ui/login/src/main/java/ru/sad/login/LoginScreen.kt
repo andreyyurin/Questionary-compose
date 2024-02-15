@@ -192,5 +192,26 @@ private fun LoginScreen(
                     width = Dimension.fillToConstraints
                 }
         )
+
+        CustomTextButton(
+            onClick = { /*TODO*/ },
+            text = stringResource(id = R.string.login_btn_enter),
+            textSize = dimensionResource(id = ru.sad.base.R.dimen.size_14_sp).value.sp,
+            modifier = Modifier
+                .constrainAs(
+                    buttonContinue
+                ) {
+                    bottom.linkTo(parent.bottom, marginBottom40)
+                    start.linkTo(
+                        parent.start,
+                        margin = marginStartEnd
+                    )
+                    end.linkTo(
+                        parent.end,
+                        margin = marginStartEnd
+                    )
+                    width = Dimension.fillToConstraints
+                }
+        )
     }
 }
