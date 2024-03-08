@@ -1,4 +1,5 @@
 import com.android.build.gradle.LibraryExtension
+import org.gradle.api.JavaVersion
 import org.gradle.kotlin.dsl.PluginDependenciesSpecScope
 
 private const val NAMESPACE = "ru.sad.base"
@@ -21,6 +22,11 @@ fun LibraryExtension.baseConfiguration() {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.9"
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 
 fun LibraryExtension.baseUiConfiguration(name: String) {
@@ -33,6 +39,11 @@ fun LibraryExtension.baseUiConfiguration(name: String) {
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.9"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 

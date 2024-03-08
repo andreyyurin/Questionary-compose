@@ -80,7 +80,13 @@ fun OnboardingScreenMain(
         viewModel.action.collect { action ->
             when (action) {
                 is OnboardingScreenAction.NavigateTo -> {
-                    //  navController.navigate(route = action.route)
+                    navController.navigate(route = action.route) {
+                        navController.graph.id.let {
+                            popUpTo(it) {
+                                inclusive = false
+                            }
+                        }
+                    }
                 }
 
                 OnboardingScreenAction.NextPage -> {

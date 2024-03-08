@@ -27,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -170,27 +171,6 @@ private fun LoginScreen(
             },
             hint = stringResource(id = R.string.login_et_password_hint),
             visualTransformation = PasswordVisualTransformation()
-        )
-
-        CustomTextButton(
-            onClick = { /*TODO*/ },
-            text = stringResource(id = R.string.login_btn_enter),
-            textSize = dimensionResource(id = ru.sad.base.R.dimen.size_14_sp).value.sp,
-            modifier = Modifier
-                .constrainAs(
-                    buttonContinue
-                ) {
-                    bottom.linkTo(parent.bottom, marginBottom40)
-                    start.linkTo(
-                        parent.start,
-                        margin = marginStartEnd
-                    )
-                    end.linkTo(
-                        parent.end,
-                        margin = marginStartEnd
-                    )
-                    width = Dimension.fillToConstraints
-                }
         )
 
         CustomTextButton(

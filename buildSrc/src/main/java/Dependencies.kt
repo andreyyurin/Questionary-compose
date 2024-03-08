@@ -19,9 +19,11 @@ fun DependencyHandler.baseUiDependencies() {
     hilt()
     tests()
     debug()
+    kotpref()
 }
 
 fun DependencyHandler.baseDependencies() {
+    implementation(project(":data"))
     compose()
     composeNavigation()
     composeMaterial()
@@ -37,6 +39,8 @@ fun DependencyHandler.dataDependencies() {
     implementation(project(":domain"))
     retrofit()
     coroutines()
+    hilt()
+    kotpref()
 }
 
 fun DependencyHandler.domainDependencies() {
@@ -82,6 +86,7 @@ private fun DependencyHandler.composeNavigation() {
 fun DependencyHandler.glide() {
     implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
 }
+
 private fun DependencyHandler.hilt() {
     implementation("com.google.dagger:hilt-android:2.50")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
@@ -118,4 +123,8 @@ private fun DependencyHandler.gson() {
     implementation("com.chibatching.kotpref:enum-support:2.9.1")
     implementation("com.chibatching.kotpref:gson-support:2.9.2")
     implementation("com.google.code.gson:gson:2.10.1")
+}
+
+private fun DependencyHandler.kotpref() {
+    implementation("com.chibatching.kotpref:kotpref:2.13.1")
 }
